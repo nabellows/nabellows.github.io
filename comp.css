@@ -1,0 +1,104 @@
+:root{
+    /* unused */
+    --emp-content: #93a1a1; 
+    /* default text color */
+    --base-content: #c9c9c9;
+    /* text color for hovered top row tabs, background color */
+    --bkgnd-color: #1e1e1e;
+    /* default background color of the top nav */
+    --base02: 	#2d2d2d;
+    /* unused */
+    --base01: #586e75;
+    /* unused */
+    --base00: #657b83;
+    /* unused */
+    --base0: 	#839496;
+    /* background color for hovered top row tabs */
+    --base1: 	#93a1a1;
+    /* unused */
+    --base2: 	#eee8d5;
+    /* unused */
+    --base3: #fdf6e3;
+    /* color of "Home" text on top bar when on index.html */
+    --sol-red:  #d16969;
+    /* color of "Projects" text on top bar when on projects.html */
+    --sol-orng: #CE9178;
+    /* color of "Work Experience" text on top bar when on work.html */
+    --sol-yel:  #d7ba7d;
+    /* color of "Gen. Ed. Reflection" text on top bar when on gen_ed_ref.html */
+    --sol-grn:  #4EC9B0;
+    /* unused */
+    --sol-cyn:  #2aa198;
+    /* color of "Cumulative Reflection" text on top bar when on cumulative_ref.html */
+    /* also used for unvisited link text color */
+    --sol-blu:  #4FC1FF;
+    /* color of "Ethics Paper" text on top bar when on ethics.html */
+    /* also used for visited text color */
+    --sol-vio:  #C586C0;
+    /* unused */
+    --sol-mag:  #d33682;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Fira Code', monospace;
+    background-color: var(--bkgnd-color);
+    color: var(--base-content)
+  }
+  hr{
+    height: 1px;
+    background-color: var(--base-content);
+    border: none;
+    margin-right: 2%;
+}
+  .welcome {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  .content {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  .content_item{
+    padding-right:2%
+  }
+  .essay{
+      padding-left:15%;
+      padding-right: 15%;
+      line-height:175%;
+}
+  .topnav {
+    overflow: hidden;
+    background-color: var(--base02);
+  }
+  
+  .topnav a {
+    float: left;
+    color: var(--base-content);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color:var(--base1);
+    color: var(--bkgnd-color)
+  }
+  
+  .link {
+    font-weight: bold;
+    text-decoration: none;
+}
+.link:link {
+    color:var(--sol-blu);
+    text-decoration: none;
+}
+.link:visited {
+    color:var(--sol-vio);
+    text-decoration: none;
+}
+.active{
+  background-color: var(--bkgnd-color);
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="comp.css">
+        <!-- begin font importing -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+        <!-- end font importing -->
+        <!-- <link rel="icon" type="image/x-icon" href="bellows.png"> -->
+        <title>Projects</title>
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="index.html" >Home</a>
+            <a class="active" href="projects.html" style="color:var(--sol-orng)">Projects</a>
+            <a href="work.html">Work Experience</a>
+            <a href="Nathan_Bellows_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume↗</a>
+            <a href="gen_ed_ref.html">Gen. Ed. Reflection</a>
+            <a href="cumulative_ref.html">Cumulative Reflection</a>
+            <a href="ethics.html">Ethics Paper</a>
+        </div>
+        <div class="content">
+            <div class="content_item">
+                <h2>Automated Chess Board System <i>(CPRE 491 & 492: Senior Design)</i></h2>
+                <ul>
+                    <li>Developed hardware and software for a physical chessboard that invisibly moves board pieces to play against the human player (functionally similar to <i><a class="link" href="https://squareoffnow.com/"> Square Off</a></i> chess boards).</li>
+                    <li>My Contributions:</li>
+                    <ul> 
+                        <li>
+                            I, as well as each other team member, was involved in the brainstorming and design decisions of the essential board mechanisms, such as the use of Hall Effect sensors, the use of a two-motor gantry and electromagnet, and the divisions between high-level software (Raspberry Pi) and low-level software (Arduino microcontroller). 
+                            We all also contributed in differing amounts to the testing of our electronics (stepper motors, Hall Effect sensors, and multiplexors) and basic soldering and construction. 
+                        </li>
+                        <li>
+                            My more specialized role in the team was developing software alongside the other few CprE/SE students in my team, in parallel with the EE students performing more of the precise gantry design, construction work, and component selection. 
+                            I initially wrote all of the microcontroller code and designed the "lossless" asynchronous communication strategy to be used between the software layers.
+                            Then, after our team was facing significant setbacks/blockers in the board hardware production, I wrote a graphical simulator of the desired hardware with the exact same interface as the arduino and board hardware.
+                            The simulator emulated the 96 digital Hall Effect sensors, motor movements, and (simplified) electromagnet action. 
+                            It allowed a simple but very effective replacement for the board hardware for us to use while developing the higher level software.
+                            With this new simulator, I then also contributed a large portion of the resulting high-level software, including all of the algorithm for deducing user moves from only the Hall Effect sensors,
+                            the detection and guided prompts for detecting and correcting invalid sensor states (user input robustness), extra graphical enhancements, improved piece routing algorithms, 
+                            board reconstruction/reset, layer abstraction and modular interfacing, configuration options, and more.
+                        </li>
+                    </ul>
+                    <li>Tools & Languages Used:</li>
+                    <ul>
+                        <li>Python
+                            <ul><li>Used for all the high-level software, which was intended to be the extra user interface on a touchscreen (run from a Raspberry Pi), as well as the board simulator.</li></ul>
+                        </li>
+                        <li>C++
+                            <ul><li>Used for the Arduino microcontroller code parsing instructions from the Raspberry Pi, controlling the motor and electromagnet, tracking and debouncing multiplexed Hall Effect sensors, and notifying the Raspberry Pi of sensor changes. Initial attempts at a board simulator were also in C++, before deciding Python was the better route.</li></ul>
+                        </li>
+                        <li>Board Equipment (Stepper motors, stepper motor control boards, digital Hall Effect sensors, digital 8-1 and 2-1 multiplexors)
+                            <ul><li>Used in testing and final design to implement the invisible detection and movement of magnetic chess pieces.</li></ul>
+                        </li>
+                        <li>Personal Electronics Kits (breadboards, resistors/capacitors/jumpers)
+                            <ul><li>Used to construct both the test prototypes and final design in absense of PCB or other parts.</li></ul>
+                        </li>
+                        <li>Electronic Lab Equipment (DC power supplies, oscilloscopes)
+                            <ul><li>Used for prototyping and debugging many issues with individual and integration testing of the board components. Also used to power the final design an absense of a finished power supply from our EE team.</li></ul>
+                        </li>
+                    </ul>
+                    <li>Skills Acquired/Improved:
+                        <ul>
+                            <li>Python</li>
+                            <ul><li>
+                                While I was familiar with basic Python and could hack together or modify an existing Python script before, for this project I did much more intentional studying, practicing, and development of my Python skills. 
+                                I wrote significantly more Python for this project than I had ever written before, and became much more comfortable with the basic and intermediate language and library details.
+                            </li></ul>
+                            <li>GUI Development</li>
+                            <ul><li>
+                                Without much familiarity with Python or other Javascript or anything similar, my only experience with a graphical application (beyond ASCII graphics) had been the basic multiplayer game Android App I developed for ComS 309, which was assisted by a game engine. 
+                                For this project, I learned about Tk and how to use Tkinter in python, designing all the graphics for my simulator program, and helping with the graphics of our application software for the final product.
+                            </li></ul>
+                            <li>Breadboarding</li>
+                            <ul><li>
+                                While I was more comfortable with building and validating circuits in some of my earlier EE coursework, it had been a while and I needed a refresher. 
+                                Having our EE students around and regaining the confidence to build my own circuits or even correct their circuits was encouraging to me.
+                            </li></ul>
+                        </ul>
+                    </li>
+                    <li><a class="link" href="http://sdmay22-13.sd.ece.iastate.edu/">Project Site</a></li>
+                    <li><a class="link" href="https://git.ece.iastate.edu/sd/sdmay22-13">Project Repository</a></li>
+                </ul>
+            </div>
+            <hr>
+            <div class="content_item">
+                <h2>C Compiler: 'mycc' <i>(COMS 440: Principles and Practice of Compiling)</i></h2>
+                <ul>
+                    <li>
+                        From scratch, wrote a compiler for a functional subset of the C standard, targeting the JVM stack machine. 
+                        Implemented lexical analysis, hand-built recursive-descent parsing, efficient data structures and symbol tables, type checking, and JVM assembly code generation.
+                    </li>
+                    <li>My Contributions:</li>
+                    <ul> 
+                        <li>
+                            The entire project was an individual project. I implemented the entire compiler in C++, writing all my infrastructure, utilities, and core compiler logic. 
+                            I used the newer C++20 standard as a personal goal to incorporate new C++20 features (as far as were supported by g++-10) into my C++ experience, using several of the new features, including concepts, better generics, library features, and more. 
+                            I wrote all the documentation and strong Makefile configuration to make this project more professional than my other academic software projects to date. 
+                            Interesting accomplishments include a C++ parser generator/combinator "library" (which I may extend into its own project, using improved parsing theories we eventually learned in lecture) which uses extensive C++ metaprogramming and techniques. 
+                            Overall, I think some of my C++ prowess is displayed really well by this project. 
+                        </li>
+                    </ul>
+                    <li>Tools & Languages Used:</li>
+                    <ul>
+                        <li>C++
+                            <ul><li>All of the actual compiler implementation is in C++.</li></ul>
+                        </li>
+                        <li>GNU Make
+                            <ul><li>
+                                We were required to use Make or similar tools to build our projects, so I created and revised my Makefile to become effective at its single task of managing all of the build configuration (including debug/release modes) for the project.
+                            </li></ul>
+                        </li>
+                        <li>LaTeX
+                            <ul><li>
+                                The instructor required all the report-level documentation (and also homeworks) to be completed in LaTeX, which was new to me.
+                            </li></ul>
+                        </li>
+                        <li><a class="link" href="https://github.com/Storyyeller/Krakatau">Krakatau</a> JVM assembler
+                            <ul><li>Used to assemble our compiler output (JVM assembly) into executable Java class files.</li></ul>
+                        </li>
+                    </ul>
+                    <li>Skills Acquired/Improved:
+                        <ul>
+                            <li>Software Project Management/Practice</li>
+                            <ul><li>
+                                While I have had classes focused on software managment, especially focused on teamwork, this class in particular gave me more instances in which I had to reflect on my organization and coding habits.
+                                I learned (from my mistakes) that certain design decisions do not scale well, including C++ habits I had started to form. Trying to inline everything and prematurely optimize leads to large header-only or header-dominant situations that just do not look good for this project (this issue still exists in parts of the codebase). 
+                                I very often had to refactor, revisit, or improve code that implemented earlier parts of the compilation pipeline in order to better support upcoming features.
+                                Even though I was the sole developer, the sheer amount of code, revisisons, and complexity led to a lot of introspection and wisdom from experience about software projects, and my own bad habits in writing C++ or other code.
+                            </li></ul>
+                            <li>Compilation/Parser Theory</li>
+                            <ul><li>
+                                This class obviously tought as a lot about parsing theory, as well as how grammar theory extends to compilation and code generation. 
+                                We saw various tradeoffs discussed in lectures, and got personal experience and wisdom in our development of our personal compilers, without the instructor holding our hands along the way.
+                            </li></ul>
+                            <li>C++</li>
+                            <ul><li>
+                                At this point in my software career, I was already very fluent in C++ (by my own endorsement). 
+                                However, this project was still a good practice opportunity, especially for certain C++20 features even though I could not use all of them (some were not supported in the compiler I had to use, g++-10, but also some didn't apply much to this project).
+                            </li></ul>
+                        </ul>
+                    </li>
+                    <li><a class="link" href="https://git.ece.iastate.edu/nbellows/cs440_proj">Project Repository (Currently Private)</a></li>
+                </ul>
+            </div>
+            <hr>
+            <div class="content_item">
+                <h2>Simple Graphics Processor <i>(CPRE 480: Computer Graphics Architecture)</i></h2>
+                <ul>
+                    <li>
+                        Used VHDL and Xilinx IP to design an implementation of significant portions of the OpenGL
+                        rendering pipeline in hardware, including programmable vertex/fragment shader processors,
+                        viewport transformation, primitive assembly, rasterization, and rendering. Developed a driver
+                        in C to manage OpenGL state and render the graphics on the hardware implementation. Ran
+                        the graphics processor on a Xilinx Artix-7 FPGA from a remote Linux machine and observed
+                        the output on a connected monitor. Explored architecture decisions for performance,
+                        robustness, debuggability, and FPGA timing closure.
+                    </li>  
+                    <li>My Contributions:</li>
+                    <ul> 
+                        <li>
+                            As part of a four member team, I took on a significant responsibility in the planning, development, and testing. 
+                            I wrote VHDL for practically every component, as well as the driver implementations for most of those same parts of the graphics pipeline. 
+                            When I delegated responsibility to another developer, I believe I provided a comprehensive and thought-out plan for them to complete the code and integrate it with the rest of the project.
+                            I think I took on the largest role in desigining and planning our architecture, including sophisticated debugging capabilities in the hardware which surpassed that of our classmates and provided extremely useful in fixing issues at a variety of stages in development.
+                            I designed for mix of time-to-complete, robustness, debuggability, and performance. 
+                        </li>
+                    </ul>
+                    <li>Tools & Languages Used:</li>
+                    <ul>
+                        <li>C
+                            <ul><li>The entire SGP driver was written in C, requiring a large amount of OpenGL state management and lower-level communication with our FPGA board.</li></ul>
+                        </li>
+                        <li>C++
+                            <ul><li>Used for OpenGL test program development</li></ul>
+                        </li>
+                        <li>VHDL
+                            <ul><li>
+                                Each stage in the hardware pipeline was implemented as an original IP in VHDL with an AXI interface (usually an AXI4-Lite register space, as well as AXI4-Stream input/output). Data management, algorithms such as rasterization, module handshaking, and more were all done in our custom VHDL (typically starting from the instructor's skeleton, but moving far beyond and replacing almost all of it with our own).
+                            </li></ul>
+                        </li>
+                        <li>Nexys Video Artix-7 FPGA (Xilinx)
+                            <ul><li>Used to deploy the SGP at each project stage and test with a real monitor (remote infrastructure for Spring 2021).</li></ul>
+                        </li>
+                        <li>Xilinx Vivado
+                            <ul><li>Used for design, simulation, synthesis/implementation, and programming/debugging the FPGA. Used to package and manage each IP core we developed (for various pipeline stages), and develop the top-level system with block diagrams and Xilinx IP (for ethernet, AXI connections, memory interface, video output, etc).</li></ul>
+                        </li> 
+                    </ul>
+                    <li>Skills Acquired/Improved:
+                        <ul>
+                            <li>VHDL</li>
+                            <ul><li>
+                                We had already used VHDL in prior coursework (CprE 381), but never to the great extent of this class. 
+                                In this class I multiplied my VHDL experience by a large amount, had the opportunity to make and learn from mistakes, and learn best practices. 
+                            </li></ul>
+                            <li>HDL System Design, FPGA Implementation</li>
+                            <ul><li>
+                                This class had the greatest total system complexity in hardware compared to other classes by far. We had to learn to reason about many cores working on separate tasks in parallel, handling data handshaking, avoiding timing issues, and so on.
+                                We also learned more about the architecture and use of FPGAs. We gained valuable wisdom about FPGA utilization, routing, and timing closure, as well as skills to meet timing and get a functional design.
+                                In the introductory lab (matrix-vector multiplication acceleration), we practiced using the FPGA for massive parallelization, while fighting difficult timing and routing issues to achieve the fastest accelerator in the class (including instructor/TA).
+                                Hardware/FPGA debugging was a significant portion of our learning and time, unlike any of our classes up to this point.
+                            </li></ul>
+                            <li>OpenGL</li>
+                            <ul><li>
+                                This class introduced us to OpenGL, and low-level graphics programming. 
+                            </li></ul>
+                            <li>GPU architecture</li>
+                            <ul><li>
+                                While our project was moreso the simple single graphics processing pipeline closer to that of the older OpenGL pipelines, we also studied modern graphics architecture and unified shader architecture (which was then touched on later in two of my other courses as well).
+                            </li></ul>
+                        </ul>
+                    </li>
+                    <li><a class="link" href="https://github.com/RSchneyer/CPRE_480_S21">Project Repository (Currently Private)</a></li>
+                </ul>
+            </div>
+            <hr>
+            <div class="content_item">
+                <h2>Pipelined MIPS Processor <i>(CPRE 381: Computer Org. & Assembly Level Programming)</i></h2>
+                <ul>
+                    <li>
+                        Designed a MIPS CPU with VHDL, supporting most of the core ISA. Implemented the CPU both
+                        in a single-cycle design and a pipelined design with proper forwarding and hazard detection.
+                        Verified behavior in ModelSim simulations.
+                    </li>
+                    <li>My Contributions:</li>
+                    <ul> 
+                        <li>
+                            For the majority of the semester, all work was individual. 
+                            When putting together the final processorI developed all the critical structures of the simple MIPS CPU, such as the register file, ALU 
+                            (aside from barrel shifter, which was by my teammate), and all the primitive multiplexors, gates, and registers which comprise those larger level structures. 
+                            Much of this code was required to be in certain structural or dataflow VHDL rather than using convenient VHDL features and inference.
+                            I was solely responsible for the entire implementation of the hardware scheduled pipeline for the final project, implementing it in what I would judge as quite self-documenting, clean, and maintainable VHDL. 
+                            We built testbenches for every structure, and even a basic processor testbench along the way, alongside the automated processor simulation tools provided by the professor.
+                        </li>
+                    </ul>
+                    <li>Tools & Languages Used:</li>
+                    <ul>
+                        <li>VHDL
+                            <ul><li>All processor implementation and testbenches were written in VHDL.</li></ul>
+                        </li>
+                        <li>MIPS Assembly
+                            <ul><li>
+                                Test programs for the processor were written in MIPS assembly, and assembled to use the automated simulation framework.
+                                We also had been writing programs and algorithms in MIPS assembly for class assignments. 
+                            </li></ul>
+                        </li>
+                        <li>ModelSim
+                            <ul><li>
+                                Testbench and processor simulation were done in ModelSim. Simulations of processor execution were verified by instructor-provided python scripts that used the MARS MIPS simulator.
+                            </li></ul>
+                        </li>
+                    </ul>
+                    <li>Skills Acquired/Improved:
+                        <ul>
+                            <li>VHDL</li>
+                            <ul><li>
+                                This was my first experience with VHDL, and I became pretty comfortable with it and its features, beyond the basic structural and dataflow VHDL required for the course (including more advanced testbench creation, functions, and generics).
+                            </li></ul>
+                            <li>HDL Simulation</li>
+                            <ul><li>
+                                This was the first class with significant HDL work, outside of the introductory digital logic course (CprE 281).
+                                Testing code via hardware simulation is a very different process than debugging software, and this was a useful introduction to HDL simulation/verification.
+                            </li></ul>
+                            <li>Computer Architecture</li>
+                            <ul><li>
+                                This class obviously gave us knowledge on the basics of computer architecture, through both lecture and our personal implementation. 
+                                This was the first significant dive into computer architecture that I had experienced in my academics.
+                            </li></ul>
+                        </ul>
+                    </li>
+                    <li><a class="link" href="https://git.ece.iastate.edu/nbellows/cpre_381_processor/-/tree/master">Project Repository (Currently Private)</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
